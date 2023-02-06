@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "595729403024",
+    "firebase_url": "https://devmobile-c26e5-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "devmobile-c26e5",
+    "storage_bucket": "devmobile-c26e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595729403024:android:f6144b25f3ae9e3dcc5c15",
+        "android_client_info": {
+          "package_name": "fr.isen.girardbonnefond.tennisschedule"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "595729403024-e8frfkusqa2k3jem1rv61pcf8k9bgo28.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK3lF2iWS8VfMWYqzR6d2jGe4jvqe8GsE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "595729403024-e8frfkusqa2k3jem1rv61pcf8k9bgo28.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
