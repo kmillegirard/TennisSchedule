@@ -11,6 +11,18 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import fr.isen.girardbonnefond.tennisschedule.databinding.ActivityMainBinding
 
+
+
+
+
+
+
+
+
+
+
+
+
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
