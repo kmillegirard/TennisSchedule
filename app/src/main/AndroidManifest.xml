@@ -12,6 +12,9 @@
         android:theme="@style/Theme.TennisSchedule"
         tools:targetApi="31">
         <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
             android:name=".CommeTuVeux"
             android:exported="false" />
         <activity
