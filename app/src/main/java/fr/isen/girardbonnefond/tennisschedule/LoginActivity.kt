@@ -4,15 +4,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import fr.isen.girardbonnefond.tennisschedule.databinding.ActivityMainBinding
+import fr.isen.girardbonnefond.tennisschedule.databinding.ActivityLoginBinding
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+class LoginActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityLoginBinding
 
     private lateinit var auth: FirebaseAuth
 
@@ -27,10 +28,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        /*email = binding.email.text.toString()
-        password = binding.password.text.toString()*/
         auth = Firebase.auth
         onStart()
         binding.buttonConnexion.setOnClickListener{
@@ -38,79 +37,65 @@ class MainActivity : AppCompatActivity() {
             password = binding.password.text.toString()
             signIn(email,password)
         }
+        val textViewAdmin = findViewById<TextView>(R.id.textViewAdmin)
+
+        textViewAdmin.setOnClickListener {
+            val intent = Intent(this, AdminActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     public override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
-        if(currentUser != null){
-            reload()
+       if(currentUser != null){
+        reload(this)
         }
     }
-    // [END on_start_check_user]
 
     private fun createAccount(email: String, password: String) {
-        // [START create_user_with_email]
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
                     updateUI(user)
                 } else {
-                    // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.",
+                    Toast.makeText(baseContext, "Fail",
                         Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }
             }
-        // [END create_user_with_email]
     }
 
     private fun signIn(email: String, password: String) {
-        // [START sign_in_with_email]
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithEmail:success")
                     val user = auth.currentUser
                     updateUI(user)
                 } else {
-                    // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.",
+                    Toast.makeText(baseContext, "Email et/ou mot de passe incorrect(s)",
                         Toast.LENGTH_SHORT).show()
-                    updateUI(null)
                 }
             }
-        // [END sign_in_with_email]
     }
-
     private fun sendEmailVerification() {
-        // [START send_email_verification]
         val user = auth.currentUser!!
         user.sendEmailVerification()
             .addOnCompleteListener(this) { task ->
-                // Email Verification sent
             }
-        // [END send_email_verification]
     }
 
     private fun updateUI(user: FirebaseUser?) {
         val intent= Intent(this,Log::class.java)
         startActivity(intent)
-
-        ///If user diff null afficher autre page
-
     }
 
-    private fun reload() {
-
-    }
-
-
+    private fun reload(activity: LoginActivity) {
+            activity.recreate()
+        }
 }

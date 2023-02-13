@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">TennisSchedule</string>
+
+    <string name="email"></string>
+    <string name="mdp"></string>
+    <string name="titre">My Tennis Club Scheduler</string>
+    <string name="sousTitre">Espace adhérents</string>
+    <string name="admin">Vous êtes admin ?</string>
+    <string name="connexion">Se connecter</string>
+
+
 </resources>
