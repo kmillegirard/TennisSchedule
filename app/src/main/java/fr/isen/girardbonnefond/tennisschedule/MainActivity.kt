@@ -11,18 +11,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import fr.isen.girardbonnefond.tennisschedule.databinding.ActivityMainBinding
 
-
-
-
-
-
-
-
-
-
-
-
-
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
@@ -113,7 +101,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateUI(user: FirebaseUser?) {
-        val intent= Intent(this,CommeTuVeux::class.java)
+        val intent= Intent(this,Log::class.java)
         startActivity(intent)
 
         ///If user diff null afficher autre page
