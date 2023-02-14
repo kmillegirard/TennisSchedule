@@ -27,9 +27,6 @@ class AdminActivity : AppCompatActivity() {
 
 
             if (username == "admin" && password == "1234") {
-                // Si correct, afficher un Toast de bienvenue
-                Toast.makeText(this, "Bienvenue, admin!", Toast.LENGTH_SHORT).show()
-
                 buttonConnexion.setOnClickListener {
                     val intent = Intent(this, AddUserActivity::class.java)
                     startActivity(intent)

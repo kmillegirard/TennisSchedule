@@ -51,11 +51,8 @@ class LoginActivity : AppCompatActivity() {
                                 startActivity(intent)
                             }
                         }
-
                     }
-
                 }
-
                 override fun onCancelled(error: DatabaseError) {
                     Log.e("dataBase", error.toString())
                 }

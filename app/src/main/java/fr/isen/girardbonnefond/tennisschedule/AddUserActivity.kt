@@ -27,16 +27,8 @@ class AddUserActivity : AppCompatActivity() {
     }
 
     fun writeNewUser(username: String, email: String, password: String) {
-        val user = (LoginActivity.User::class.java)
-        DataBaseHelper.database.reference.child("users").child((user ?: "") as String).setValue(user)
-    }
-
-    @IgnoreExtraProperties
-    data class User(val username: String? = null,
-                    val email: String? = null,
-                    val password: String? = null,
-                    val uuid: String? = null) {
-        // Null default values create a no-argument default constructor, which is needed
-        // for deserialization from a DataSnapshot.
+        val userId = UUID.randomUUID().toString()
+        val user = LoginActivity.User(username, email, password, userId)
+        DataBaseHelper.database.reference.child("users").child(user.uuid ?: "").setValue(user)
     }
 }
