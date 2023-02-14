@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fond_login"
-    tools:context=".AdminActivity">
+    tools:context=".AddUserActivity">
 
     <EditText
         android:id="@+id/password"
@@ -18,7 +18,7 @@
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/buttonAjout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.835" />
@@ -27,8 +27,8 @@
         android:id="@+id/buttonAjout"
         android:layout_width="213dp"
         android:layout_height="67dp"
-        android:text="@string/connexion"
-        android:textSize="20sp"
+        android:text="@string/ajouter"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.50"
@@ -47,10 +47,26 @@
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.719" />
+        app:layout_constraintVertical_bias="0.5" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:text="@string/email"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username"
+        app:layout_constraintVertical_bias="0.275" />
 
     <TextView
         android:id="@+id/textViewTitre"
@@ -75,7 +91,7 @@
         android:fontFamily="@font/alfa_slab_one"
         android:shadowColor="#FFFFFF"
         android:shadowRadius="20"
-        android:text="@string/sousTitre2"
+        android:text="@string/sousTitre3"
         android:textColor="#BC444A"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/username"
@@ -83,5 +99,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitre"
         app:layout_constraintVertical_bias="0.138" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

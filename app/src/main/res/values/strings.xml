@@ -8,5 +8,10 @@
     <string name="admin">Vous êtes admin ?</string>
     <string name="connexion">Se connecter</string>
 
+    <string name="sousTitre2">Espace admin</string>
+
+    <string name="sousTitre3">Ajout adhérent</string>
+    <string name="ajouter">ajouter</string>
+
 
 </resources>
