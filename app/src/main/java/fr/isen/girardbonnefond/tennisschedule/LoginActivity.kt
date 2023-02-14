@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
 
     fun getUser(email: String, password: String) {
 
-        val buttonConnexion = findViewById<Button>(R.id.buttonAjout)
+        val buttonConnexion = findViewById<Button>(R.id.buttonConnexion)
 
         DataBaseHelper.database.getReference("users")
             .orderByChild("email")
@@ -47,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
                             Log.d("dataBase","connected")
                             // Connected
                             buttonConnexion.setOnClickListener {
-                                val intent = Intent(this@LoginActivity, AdminActivity::class.java)
+                                val intent = Intent(this@LoginActivity, AddUserActivity::class.java)
                                 startActivity(intent)
                             }
                         }

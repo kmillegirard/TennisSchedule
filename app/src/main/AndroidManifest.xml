@@ -11,6 +11,9 @@
         android:theme="@style/Theme.TennisSchedule"
         tools:targetApi="31">
         <activity
+            android:name=".PageTestActivity"
+            android:exported="false" />
+        <activity
             android:name=".DataBaseHelper"
             android:exported="false" />
         <activity
@@ -20,7 +23,7 @@
         <activity
             android:name=".AddUserActivity"
             android:exported="false"
-            android:label="Page d'ajout d'adhérent"/>
+            android:label="Page d&apos;ajout d&apos;adhérent" />
         <activity
             android:name=".LoginActivity"
             android:exported="true"
