@@ -11,11 +11,9 @@
         android:theme="@style/Theme.TennisSchedule"
         tools:targetApi="31">
         <activity
-            android:name=".PageTestActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DataBaseHelper"
-            android:exported="false" />
+            android:name=".CalendarActivity"
+            android:exported="false"
+            android:label="Calendrier"/>
         <activity
             android:name=".AdminActivity"
             android:exported="false"
@@ -30,7 +28,6 @@
             android:label="Page de connexion">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

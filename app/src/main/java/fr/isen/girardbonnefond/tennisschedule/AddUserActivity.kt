@@ -1,10 +1,11 @@
 package fr.isen.girardbonnefond.tennisschedule
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import com.google.firebase.database.IgnoreExtraProperties
+import com.google.firebase.firestore.auth.User
 import java.util.*
 
 class AddUserActivity : AppCompatActivity() {
@@ -23,6 +24,8 @@ class AddUserActivity : AppCompatActivity() {
             val password = passwordEditText.text.toString()
 
             writeNewUser(username, email, password)
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 
