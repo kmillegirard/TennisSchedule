@@ -11,25 +11,26 @@
         android:theme="@style/Theme.TennisSchedule"
         tools:targetApi="31">
         <activity
-            android:name=".CalendarActivity"
-            android:exported="false"
-            android:label="Calendrier"/>
+            android:name=".calendar.CalendarActivity"
+            android:exported="true"
+            android:label="Calendrier">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+        </activity>
         <activity
-            android:name=".AdminActivity"
+            android:name=".logadmin.AdminActivity"
             android:exported="false"
             android:label="Page Administrateur" />
         <activity
-            android:name=".AddUserActivity"
+            android:name=".logadmin.AddUserActivity"
             android:exported="false"
             android:label="Page d&apos;ajout d&apos;adhérent" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true"
+            android:exported="false"
             android:label="Page de connexion">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

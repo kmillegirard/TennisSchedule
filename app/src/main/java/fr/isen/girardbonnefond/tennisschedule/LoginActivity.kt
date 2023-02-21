@@ -9,8 +9,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import fr.isen.girardbonnefond.tennisschedule.calendar.CalendarActivity
+import fr.isen.girardbonnefond.tennisschedule.logadmin.AdminActivity
+import fr.isen.girardbonnefond.tennisschedule.logadmin.DataBaseHelper
 
-class LoginActivity : AppCompatActivity(){
+class LoginActivity: AppCompatActivity(){
 
     lateinit var database: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {

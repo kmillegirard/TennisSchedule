@@ -1,4 +1,4 @@
-package fr.isen.girardbonnefond.tennisschedule
+package fr.isen.girardbonnefond.tennisschedule.logadmin
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import com.google.firebase.firestore.auth.User
+import fr.isen.girardbonnefond.tennisschedule.LoginActivity
+import fr.isen.girardbonnefond.tennisschedule.R
 import java.util.*
 
 class AddUserActivity : AppCompatActivity() {

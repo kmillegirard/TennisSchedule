@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fond_login"
-    tools:context=".AdminActivity">
+    tools:context=".logadmin.AdminActivity">
 
     <EditText
         android:id="@+id/password"

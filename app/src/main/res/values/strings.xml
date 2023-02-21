@@ -1,17 +1,15 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">TennisSchedule</string>
 
-    <string name="email"></string>
-    <string name="mdp"></string>
+    <string name="email"> </string>
+    <string name="mdp"> </string>
     <string name="titre">My Tennis Club Scheduler</string>
     <string name="sousTitre">Espace adhérents</string>
     <string name="admin">Vous êtes admin ?</string>
     <string name="connexion">Se connecter</string>
-
     <string name="sousTitre2">Espace admin</string>
-
     <string name="sousTitre3">Ajout adhérent</string>
     <string name="ajouter">ajouter</string>
-
+    <string name="date" tools:ignore="ExtraTranslation">Sélectionner une date</string>
 
 </resources>
