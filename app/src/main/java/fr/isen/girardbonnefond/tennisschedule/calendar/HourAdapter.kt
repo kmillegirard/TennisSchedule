@@ -16,18 +16,19 @@ class HourAdapter:RecyclerView.Adapter<HourAdapter.HourViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return (22 - 7 + 1) * 8
+        return (22 - 7)
     }
 
     override fun onBindViewHolder(holder: HourViewHolder, position: Int) {
 
-        val hour = position / 8
+        /*val hour = position / 8
         val weekDay = position % 8
         val days  = listOf("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche")
         if(weekDay == 0 && hour != 0) { // Ligne d'affichage legénde Gauche
             holder.hour.text = "${hour.toInt()+8}h-${hour.toInt()+9}h"
         }
-
+*/
+        holder.hour.text = "${position+7}h-${position+8}h"
     }
 
 }

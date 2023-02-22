@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,13 +24,13 @@ class CalendarActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
         binding.pickDateButton.setOnClickListener {
+            binding.jour.visibility = View.VISIBLE
             val dpd = DatePickerDialog(/* context = */ this, /* listener = */
                 { _, mYear, mMonth, mDay ->
                 binding.pickDateButton.text = "$mDay/$mMonth/$mYear"
@@ -38,8 +39,9 @@ class CalendarActivity : AppCompatActivity() {
                 month, /* dayOfMonth = */
                 day)
             dpd.show()
+            binding.jour.isEnabled = true
         }
-        binding.recyclerView.layoutManager = GridLayoutManager(this, 8)
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = HourAdapter()
     }
 
@@ -54,5 +56,4 @@ class CalendarActivity : AppCompatActivity() {
     public override fun onDestroy() {
         super.onDestroy()
     }
-
 }

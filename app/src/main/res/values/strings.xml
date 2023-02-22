@@ -10,6 +10,8 @@
     <string name="sousTitre2">Espace admin</string>
     <string name="sousTitre3">Ajout adhérent</string>
     <string name="ajouter">ajouter</string>
+
+    <string name="jour">Le jour de réservation est </string>
     <string name="date" tools:ignore="ExtraTranslation">Sélectionner une date</string>
 
 </resources>
