@@ -11,32 +11,31 @@
         android:id="@+id/buttonSelect1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:contentDescription="bouton terrain 1 "
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/line01"
         app:layout_constraintStart_toEndOf="@+id/line0"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="bouton terrain 1 "/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/buttonSelect2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:contentDescription="bouton terrain 2"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/line01"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="bouton terrain 2"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/hour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="TextView"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

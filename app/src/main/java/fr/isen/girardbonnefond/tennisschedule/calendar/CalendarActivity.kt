@@ -17,11 +17,12 @@ class CalendarActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCalendarBinding
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityCalendarBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
 
-        binding = ActivityCalendarBinding.inflate(layoutInflater)
 
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)

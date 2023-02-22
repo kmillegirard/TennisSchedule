@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import fr.isen.girardbonnefond.tennisschedule.databinding.ListTimeBinding
 
 class HourAdapter:RecyclerView.Adapter<HourAdapter.HourViewHolder>() {
-    class HourViewHolder(binding:ListTimeBinding):RecyclerView.ViewHolder(binding.root){
+    class HourViewHolder(binding: ListTimeBinding) : RecyclerView.ViewHolder(binding.root) {
         val hour = binding.hour
     }
 
@@ -16,24 +16,18 @@ class HourAdapter:RecyclerView.Adapter<HourAdapter.HourViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return (22 - 7 + 1 ) * 8
+        return (22 - 7 + 1) * 8
     }
 
     override fun onBindViewHolder(holder: HourViewHolder, position: Int) {
+
         val hour = position / 8
         val weekDay = position % 8
         val days  = listOf("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche")
-        if (hour == 0 && weekDay != 0) {
-            holder.hour.text = days[weekDay-1]
-            holder.hour.rotation = -60F
-        } else if(weekDay == 0 && hour != 0) {
+        if(weekDay == 0 && hour != 0) { // Ligne d'affichage legénde Gauche
             holder.hour.text = "${hour.toInt()+8}h-${hour.toInt()+9}h"
-        } else  if(hour == 0 && weekDay == 0) {
-
-        } else {
-            holder.hour.text = "X"
         }
-    }
 
+    }
 
 }
