@@ -21,7 +21,6 @@ class CalendarActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCalendarBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
 
         val calendar = Calendar.getInstance()
@@ -44,6 +43,7 @@ class CalendarActivity : AppCompatActivity() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = HourAdapter()
     }
+
 
 
 

@@ -14,10 +14,6 @@
             android:name=".calendar.CalendarActivity"
             android:exported="true"
             android:label="Réservation">
-                <intent-filter>
-                    <action android:name="android.intent.action.MAIN" />
-                    <category android:name="android.intent.category.LAUNCHER" />
-                </intent-filter>
         </activity>
         <activity
             android:name=".logadmin.AdminActivity"
@@ -29,8 +25,12 @@
             android:label="Page d&apos;ajout d&apos;adhérent" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="Page de connexion">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

@@ -4,30 +4,25 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
-import fr.isen.girardbonnefond.tennisschedule.R
+import fr.isen.girardbonnefond.tennisschedule.databinding.ActivityAdminBinding
 import java.util.*
 
 class AdminActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityAdminBinding
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_admin)
+        binding = ActivityAdminBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val usernameEditText = findViewById<EditText>(R.id.username)
-        val passwordEditText = findViewById<EditText>(R.id.password)
-        val buttonConnexion = findViewById<Button>(R.id.buttonAjout)
-
-
-        buttonConnexion.setOnClickListener {
-            val username = usernameEditText.text.toString()
-            val password = passwordEditText.text.toString()
-
+        binding.buttonAjout.setOnClickListener {
+            val username = binding.username.text.toString()
+            val password = binding.password.text.toString()
 
             if (username == "admin" && password == "1234") {
-                buttonConnexion.setOnClickListener {
+                binding.buttonAjout.setOnClickListener {
                     val intent = Intent(this, AddUserActivity::class.java)
                     startActivity(intent)
                 }
