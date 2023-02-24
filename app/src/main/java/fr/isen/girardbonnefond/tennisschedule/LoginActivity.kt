@@ -43,13 +43,14 @@ class LoginActivity : AppCompatActivity() {
                         if (user?.password == password) {
                             val intent = Intent(this@LoginActivity, CalendarActivity::class.java)
                             startActivity(intent)
-                        } else {
-                            Toast.makeText(
-                                this@LoginActivity,
-                                "Problème d'identification",
-                                Toast.LENGTH_SHORT
-                            ).show()
                         }
+                    }
+                    else {
+                        Toast.makeText(
+                            this@LoginActivity,
+                            "Problème d'identification",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
 
