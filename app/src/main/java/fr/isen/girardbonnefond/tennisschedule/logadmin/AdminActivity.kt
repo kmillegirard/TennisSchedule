@@ -22,12 +22,10 @@ class AdminActivity : AppCompatActivity() {
             val password = binding.password.text.toString()
 
             if (username == "admin" && password == "1234") {
-                binding.buttonAjout.setOnClickListener {
-                    val intent = Intent(this, AddUserActivity::class.java)
-                    startActivity(intent)
-                }
+                val intent = Intent(this, AddUserActivity::class.java)
+                startActivity(intent)
+
             } else {
-                // Si incorrect, afficher un Toast d'erreur
                 Toast.makeText(this, "Nom d'utilisateur ou mot de passe incorrect", Toast.LENGTH_SHORT).show()
             }
         }
