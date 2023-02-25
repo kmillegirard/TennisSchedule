@@ -14,4 +14,8 @@
     <string name="jour">Le jour de réservation est </string>
     <string name="date" tools:ignore="ExtraTranslation">Sélectionner une date</string>
 
+    <string name="terrain1">Terrain n°1</string>
+    <string name="terrain2">Terrain n°2</string>
+
+    <string name="select">Sélectionner une date</string>
 </resources>

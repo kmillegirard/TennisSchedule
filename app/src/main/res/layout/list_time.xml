@@ -6,33 +6,56 @@
     android:layout_height="wrap_content">
 
 
-    <ImageButton
-        android:id="@+id/buttonSelect1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="bouton terrain 1 "
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
+    <View
+        android:id="@+id/line01"
+        android:layout_width="1dp"
+        android:layout_height="37dp"
+        android:layout_margin="8dp"
+        android:background="#8CAA09"
         app:layout_constraintBottom_toTopOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.61"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintStart_toStartOf="@+id/button1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints" />
 
-    <ImageButton
-        android:id="@+id/buttonSelect2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="16dp"
-        android:contentDescription="bouton terrain 2"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
+    <LinearLayout
+        android:id="@+id/button1"
+        android:layout_width="105dp"
+        android:layout_height="32dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/buttonSelect1"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/available"
+            android:contentDescription="bouton terrain 1 " />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/button2"
+        android:layout_width="105dp"
+        android:layout_height="32dp"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.239"
-        app:layout_constraintStart_toEndOf="@+id/buttonSelect1"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/buttonSelect2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@drawable/available"
+            android:contentDescription="bouton terrain 2" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/hour"
@@ -45,20 +68,6 @@
         app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/line01"
-        android:layout_width="1dp"
-        android:layout_height="37dp"
-        android:layout_margin="8dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="#8CAA09"
-        app:layout_constraintBottom_toTopOf="@+id/view"
-        app:layout_constraintEnd_toStartOf="@+id/buttonSelect2"
-        app:layout_constraintStart_toEndOf="@+id/buttonSelect1"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
 
     <View
         android:id="@+id/view"
