@@ -5,31 +5,28 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import fr.isen.girardbonnefond.tennisschedule.calendar.CalendarActivity
+import fr.isen.girardbonnefond.tennisschedule.databinding.ActivityLoginBinding
 import fr.isen.girardbonnefond.tennisschedule.logadmin.AdminActivity
 import fr.isen.girardbonnefond.tennisschedule.logadmin.DataBaseHelper
 
-class LoginActivity: AppCompatActivity(){
+class LoginActivity : AppCompatActivity() {
 
-    lateinit var database: DatabaseReference
+    private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
 
-        val textViewAdmin = findViewById<TextView>(R.id.textViewAdmin)
-        textViewAdmin.setOnClickListener {
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.textViewAdmin.setOnClickListener {
             val intent = Intent(this, AdminActivity::class.java)
             startActivity(intent)
         }
-
-        val buttonConnexion = findViewById<Button>(R.id.buttonConnexion)
-        buttonConnexion.setOnClickListener {
-            val email = findViewById<EditText>(R.id.email).text.toString()
-            val password = findViewById<EditText>(R.id.password).text.toString()
+        binding.buttonConnexion.setOnClickListener {
+            val email = binding.email.text.toString()
+            val password = binding.password.text.toString()
             getUser(email, password)
         }
     }
@@ -46,14 +43,15 @@ class LoginActivity: AppCompatActivity(){
                         if (user?.password == password) {
                             val intent = Intent(this@LoginActivity, CalendarActivity::class.java)
                             startActivity(intent)
-                            finish()
                         }
                     }
                     else {
-                        Toast.makeText(this@LoginActivity, "Problème d'identification", Toast.LENGTH_SHORT).show()
-
+                        Toast.makeText(
+                            this@LoginActivity,
+                            "Problème d'identification",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
-
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -62,11 +60,14 @@ class LoginActivity: AppCompatActivity(){
 
             })
     }
+
     @IgnoreExtraProperties
-    data class User(val username: String? = null,
-                    val email: String? = null,
-                    val password: String? = null,
-                    val uuid: String? = null) {
+    data class User(
+        val username: String? = null,
+        val email: String? = null,
+        val password: String? = null,
+        val uuid: String? = null
+    ) {
         // Null default values create a no-argument default constructor, which is needed
         // for deserialization from a DataSnapshot.
     }
