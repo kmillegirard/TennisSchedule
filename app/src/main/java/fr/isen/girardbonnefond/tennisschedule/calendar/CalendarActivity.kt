@@ -21,12 +21,14 @@ class CalendarActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCalendarBinding
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCalendarBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         var thisDayOfWeek :String
+        val uuid = intent.getStringExtra("uuid")
 
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
@@ -45,10 +47,10 @@ class CalendarActivity : AppCompatActivity() {
                 binding.pickDateButton.text = "$day/${month+1}/$year"
                     thisDayOfWeek = getDayOfWeek(day, month+1, year)
                     if(thisDayOfWeek == "Saturday")
-                        Toast.makeText(this, "   Vous avez sélectionné un Samedi,\n Sachez que les horaires sont différents", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "   Vous avez sélectionné un Samedi,\n Sachez que les horaires sont différents", Toast.LENGTH_LONG).show()
 
                     binding.recyclerView.layoutManager = LinearLayoutManager(this)
-                    binding.recyclerView.adapter = HourAdapter(thisDayOfWeek)
+                    binding.recyclerView.adapter = HourAdapter(thisDayOfWeek,uuid.toString(), getDate(day, month,year))
 
                     binding.recyclerView.visibility = View.VISIBLE
                     binding.terrain1Text.visibility = View.VISIBLE
@@ -58,11 +60,13 @@ class CalendarActivity : AppCompatActivity() {
                 month, /* dayOfMonth = */
                 day,
                 )
+
+            dpd.datePicker.minDate = calendar.timeInMillis
+
             dpd.show()
         }
 
     }
-
 
     public override fun onStart() {
         super.onStart()
@@ -74,10 +78,26 @@ class CalendarActivity : AppCompatActivity() {
         super.onDestroy()
     }
 
-    fun getDayOfWeek(day:Int, month:Int, year:Int):String{
+    private fun getDayOfWeek(day:Int, month:Int, year:Int):String{
         val calendar = Calendar.getInstance()
         calendar.set(year, month, day)
         val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
         return DateFormatSymbols().weekdays[dayOfWeek]
     }
+
+    private fun getDate(day:Int, month: Int, year: Int):String{
+        return "$year-$month-$day"
+    }
+
+    data class Reservation(
+        val reservationId:String? =null,
+        val terrain: Int? = null,
+        val date: String? = null,
+        val time: String? = null,
+        val userId: String? = null
+    ) {
+        // Null default values create a no-argument default constructor, which is needed
+        // for deserialization from a DataSnapshot.
+    }
+
 }

@@ -1,5 +1,7 @@
 package fr.isen.girardbonnefond.tennisschedule.logadmin
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 

@@ -42,6 +42,7 @@ class LoginActivity : AppCompatActivity() {
                         val user = snapshot.children.first().getValue(User::class.java)
                         if (user?.password == password) {
                             val intent = Intent(this@LoginActivity, CalendarActivity::class.java)
+                            intent.putExtra("uuid", user?.uuid)
                             startActivity(intent)
                         }
                     }
