@@ -41,13 +41,14 @@ class CalendarActivity : AppCompatActivity() {
 
         binding.pickDateButton.setOnClickListener {
             binding.jour.visibility = View.VISIBLE
+            binding.recyclerView.visibility = View.INVISIBLE
 
             val dpd = DatePickerDialog(/* context = */ this, /* listener = */
                 { _, year, month, day ->
                 binding.pickDateButton.text = "$day/${month+1}/$year"
-                    thisDayOfWeek = getDayOfWeek(day, month+1, year)
-                    if(thisDayOfWeek == "Saturday")
-                        Toast.makeText(this, "   Vous avez sélectionné un Samedi,\n Sachez que les horaires sont différents", Toast.LENGTH_LONG).show()
+                    thisDayOfWeek = getDayOfWeek(day, month+1, year).toString()
+                    //if(thisDayOfWeek == "Saturday")
+                        Toast.makeText(this, "   Vous avez sélectionné un $thisDayOfWeek,\n Sachez que les horaires sont différents", Toast.LENGTH_SHORT).show()
 
                     binding.recyclerView.layoutManager = LinearLayoutManager(this)
                     binding.recyclerView.adapter = HourAdapter(thisDayOfWeek,uuid.toString(), getDate(day, month,year))
@@ -80,7 +81,7 @@ class CalendarActivity : AppCompatActivity() {
 
     private fun getDayOfWeek(day:Int, month:Int, year:Int):String{
         val calendar = Calendar.getInstance()
-        calendar.set(year, month, day)
+        calendar.set(year, month-1, day)
         val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
         return DateFormatSymbols().weekdays[dayOfWeek]
     }

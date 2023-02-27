@@ -83,8 +83,8 @@ class HourAdapter(thisDayOfWeek : String, uuid: String, date: String):RecyclerVi
     }
 
     override fun getItemCount(): Int {
-        return if (day != "Saturday") 22 - 7
-        else 18 - 10
+        if (day != "Saturday") return 22 - 7
+        else return 18 - 10
     }
 
     @SuppressLint1("SetTextI18n")
