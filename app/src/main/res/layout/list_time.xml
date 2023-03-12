@@ -33,8 +33,9 @@
             android:id="@+id/buttonSelect1"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/available"
-            android:contentDescription="bouton terrain 1 " />
+            android:src="@drawable/available"
+            android:contentDescription="bouton terrain 1 "
+            app:tint="@color/vert" />
     </LinearLayout>
 
 

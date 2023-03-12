@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
 import android.widget.DatePicker
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -17,8 +19,8 @@ import fr.isen.girardbonnefond.tennisschedule.databinding.ActivityCalendarBindin
 import java.text.DateFormatSymbols
 import java.util.*
 
-class CalendarActivity : AppCompatActivity() {
-
+class CalendarActivity : AppCompatActivity(), ItemCount {
+    private var clickCount = 0
     private lateinit var binding: ActivityCalendarBinding
 
     @SuppressLint("SetTextI18n")
@@ -51,7 +53,7 @@ class CalendarActivity : AppCompatActivity() {
                         Toast.makeText(this, "   Vous avez sélectionné un $thisDayOfWeek,\n Sachez que les horaires sont différents", Toast.LENGTH_SHORT).show()
 
                     binding.recyclerView.layoutManager = LinearLayoutManager(this)
-                    binding.recyclerView.adapter = HourAdapter(thisDayOfWeek,uuid.toString(), getDate(day, month,year))
+                    binding.recyclerView.adapter = HourAdapter(thisDayOfWeek,uuid.toString(), getDate(day, month,year), this)
 
                     binding.recyclerView.visibility = View.VISIBLE
                     binding.terrain1Text.visibility = View.VISIBLE
@@ -66,6 +68,8 @@ class CalendarActivity : AppCompatActivity() {
 
             dpd.show()
         }
+
+
 
     }
 
@@ -90,15 +94,17 @@ class CalendarActivity : AppCompatActivity() {
         return "$year-$month-$day"
     }
 
-    data class Reservation(
-        val reservationId:String? =null,
-        val terrain: Int? = null,
-        val date: String? = null,
-        val time: String? = null,
-        val userId: String? = null
-    ) {
-        // Null default values create a no-argument default constructor, which is needed
-        // for deserialization from a DataSnapshot.
+    override fun onItemClick(position: Int, button1: LinearLayout, button2: LinearLayout) {
+        clickCount++
+        Toast.makeText(this, "nombre de click : $clickCount", Toast.LENGTH_SHORT).show()
+        if (clickCount ==2){
+            binding.recyclerView.isClickable = false
+            button1.isClickable = false
+            button2.isClickable = false
+            binding.recyclerView.isEnabled = false
+            button1.isEnabled = false
+            button2.isEnabled = false
+            Toast.makeText(this,"Vous avez atteint la limite de réservation par jour", Toast.LENGTH_LONG).show()
+        }
     }
-
 }
